@@ -96,4 +96,5 @@ public class HelloTest {
  1、File -> Settings... -> Build,Exception,Deployment -> Compiler -> 勾选Build project automatically  -> OK
  ![](assets/learning(1)-启动和测试-0549ecac.png)  
  2、ctrl + shift + alt + / -> Registry... -> 勾选 compiler.automake.allow.when.app.running -> Close
- ![](assets/learning(1)-启动和测试-e89bf12a.png)
+ ![](assets/learning(1)-启动和测试-e89bf12a.png  
+ 3、重启IDEA即可
