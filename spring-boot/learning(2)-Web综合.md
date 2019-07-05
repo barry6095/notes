@@ -64,7 +64,7 @@ public class WebConfiguration {
 ```  
 
 ### 方式2  
-1. 在入口Application类加上注解`@ServletComponentScan`
+>1. 在入口Application类加上注解`@ServletComponentScan`
 ```
 @SpringBootApplication
 @ServletComponentScan
@@ -74,7 +74,7 @@ public class SpringbootDemoApplication {
     }
 }
 ```  
-2. 实现Filter接口，实现Filter方法，添加`@WebFilter` 注解
+>2. 实现Filter接口，实现Filter方法，添加`@WebFilter` 注解
 ```
 @WebFilter(urlPatterns = "/*")
 public class MyFilter implements Filter {
@@ -147,9 +147,9 @@ spring.jpa.show-sql=true
 ```
 `hibernate.hbm2ddl.auto` 参数主要用于自动创建、更新、验证数据库表结构，有四个值:
 > 1. `create`:启动时删数据库中的表，然后创建，退出时不删除数据表
-2. `create-drop`:启动时删数据库中的表，然后创建，退出时删除数据表,如果表不存在报错
-3. `update`:如果启动时表格式不一致则更新表，原有数据保留。**最常用是这个。**
-4. `validate`:项目启动表结构进行校验 如果不一致则报错
+> 2. `create-drop`:启动时删数据库中的表，然后创建，退出时删除数据表,如果表不存在报错
+> 3. `update`:如果启动时表格式不一致则更新表，原有数据保留。**常用是这个。**
+> 4. `validate`:项目启动表结构进行校验 如果不一致则报错
 
 `database-platform` 参数用于指定生成表名的存储引擎为 InnoDBD
 `show-sql` 是否打印出自动生成的 SQL，方便调试的时候查看
