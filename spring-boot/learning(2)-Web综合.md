@@ -3,8 +3,8 @@ Spring Boot Web 开发非常的简单，其中包括常用的 json 输出、filt
 ## json接口开发
 在以前使用spring开发项目，需要提供json接口时需要做哪些配置
 > 1. 添加 `jackjson` 等相关 jar 包
-2. 配置 Spring Controller 扫描
-3. 对接的方法添加 `@ResponseBody`
+> 2. 配置 Spring Controller 扫描
+> 3. 对接的方法添加 `@ResponseBody`
 
 现在使用Spring Boot只需在Controller类加上`@RestController`即可，这样默认类中的方法都会以json的格式返回
 ```
@@ -21,8 +21,8 @@ public class UserController {
 ```
 ## 自定义Filter
 在项目中常常会使用 filters 用于录调用日志、排除有 XSS 威胁的字符、执行权限验证等等。Spring Boot 自动添加了 `OrderedCharacterEncodingFilter` 和 `HiddenHttpMethodFilter`，并且我们可以自定义 Filter。
-### 方式1
-> 1. 实现Filter接口，实现Filter方法
+### 方式1  
+>1. 实现Filter接口，实现Filter方法
 ```
 public class MyFilter implements Filter {
     @Override
@@ -41,8 +41,8 @@ public class MyFilter implements Filter {
       System.out.println("===MyFilter destroy===");
     }
 }
-```
-2. 添加`configuration` 注解，将自定义Filter加入过滤链
+```  
+>2. 添加`configuration` 注解，将自定义Filter加入过滤链
 ```
 @Configuration
 public class WebConfiguration {
@@ -61,9 +61,10 @@ public class WebConfiguration {
       return registration;
     }
 }
-```
-### 方式2
-> 1. 在入口Application类加上注解`@ServletComponentScan`
+```  
+
+### 方式2  
+1. 在入口Application类加上注解`@ServletComponentScan`
 ```
 @SpringBootApplication
 @ServletComponentScan
@@ -72,8 +73,8 @@ public class SpringbootDemoApplication {
       SpringApplication.run(SpringbootDemoApplication.class, args);
     }
 }
-```
-2.实现Filter接口，实现Filter方法，添加`@WebFilter` 注解
+```  
+2. 实现Filter接口，实现Filter方法，添加`@WebFilter` 注解
 ```
 @WebFilter(urlPatterns = "/*")
 public class MyFilter implements Filter {
@@ -220,4 +221,4 @@ public class UserDaoTest {
   }
 }
 ```
-Spring Data Jpa 还有很多功能，比如封装好的分页，可以自己定义 SQL，主从分离等等
+Spring Data Jpa 还有很多功能，比如封装好的分页，可以自己定义 SQL，主从分离等等  
