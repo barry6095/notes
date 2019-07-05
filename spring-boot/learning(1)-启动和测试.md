@@ -16,7 +16,7 @@
 - `src/main/resources` 配置文件
 - `src/test/java` 测试程序  
 Application.java建议放到根目录下面，主要用于做一些框架配置  
-最后Application的main方法，至此一个Java项目搭建好了
+最后运行Application的main方法，至此一个Java项目搭建好了
 ## 默认依赖  
 pom.xml中默认有两个模块:  
 - `spring-boot-starter`:核心模块，包括自动配置支持、日志和YAML，web项目默认有 `spring-boot-starter-web` web模块， `spring-boot-starter-web` 自动依赖了 `spring-boot-starter`。
@@ -68,7 +68,7 @@ public class HelloTest {
 }
 ```  
 ## 开发环境调试
-热启动在正常开发项目中已经很常见了，Spring Boot对调试支持很好，修改可以实时生效，需要修改一下配置：  
+热启动在正常开发项目中已经很常见了，Spring Boot对调试支持很好，修改可以实时生效。需要修改一下配置：  
 ```
   <dependencies>
       <dependency>
@@ -96,5 +96,5 @@ public class HelloTest {
  1、File -> Settings... -> Build,Exception,Deployment -> Compiler -> 勾选Build project automatically  -> OK
  ![](assets/learning(1)-启动和测试-0549ecac.png)  
  2、ctrl + shift + alt + / -> Registry... -> 勾选 compiler.automake.allow.when.app.running -> Close
- ![](assets/learning(1)-启动和测试-e89bf12a.png  
+ ![](assets/learning(1)-启动和测试-e89bf12a.png)  
  3、重启IDEA即可
