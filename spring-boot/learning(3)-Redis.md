@@ -121,13 +121,13 @@ public class UserController {
 >`@Caching`：可以指定多个相关注解，其拥有三个属性：`cacheable`、`put`和`evict`，分别用于指定`@CachePut`、`@CachePut`和`@CacheEvict` </br>
 
 部分参数介绍：
->`value`:指定缓存名称
->`key`:生成指定的key，支持SpringEL。没有指定时使用默认策略生成Key
->`keyGenerator`:指定Key的生成策略
->`condition`:指定使用缓存处理的条件，通过SpringEL表达式了判断
->`allEntries`: `@CacheEvict`的属性，表示是否忽略Key清除缓存中所有元素
->`key` 和 `keyGenerator` 不能同时使用
->生成的缓存Key为 value::key
+>`value`:指定缓存名称  
+>`key`:生成指定的key，支持SpringEL。没有指定时使用默认策略生成Key  
+>`keyGenerator`:指定Key的生成策略  
+>`condition`:指定使用缓存处理的条件，通过SpringEL表达式了判断  
+>`allEntries`: `@CacheEvict`的属性，表示是否忽略Key清除缓存中所有元素  
+>`key` 和 `keyGenerator` 不能同时使用  
+>生成的**缓存Key**为 **value::key**
 
 Spring还为我们提供了一个root对象可以用来生成Key：
 
