@@ -152,7 +152,7 @@ spring.jpa.show-sql=true
 > 4. `validate`:项目启动表结构进行校验 如果不一致则报错
 
 `database-platform` 参数用于指定生成表名的存储引擎为 InnoDBD
-`show-sql` 是否打印出自动生成的 SQL，方便调试的时候查看
+`show-sql` 是否打印出自动生成的 SQL，方便调试的时候查看  
 3、添加实体类和 Dao
 ```
 @Entity
