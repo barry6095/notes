@@ -1,5 +1,6 @@
 # MapStruct
 ## 介绍  
+项目中会经常涉及到对象的转换，比如前端展示对象和后台持久化对象的互相转换，虽然可以通过getter/setter进行映射，但是当转换较多的时候代码会很繁琐冗余。所以对象与对象之间的互相转换，就需要有一个专门用来解决转换问题的工具，MapStruct 就是这样的一个属性映射工具。
 ## 使用
 1、引入依赖  
 ```
@@ -171,6 +172,16 @@ public void test2(){
 ```
 void boy2Girl(BoyDO boyDO,@MappingTarget GirlDO girlDO);
 ```  
+#### 测试方法
+```
+@Test
+public void testUpdate(){
+  BoyDO boyDO=new BoyDO("小朋友",18);
+  GirlDO girlDO=new GirlDO();
+  CoupleConverter.INSTANCE.boy2Girl(boyDO,girlDO);
+  System.out.println(girlDO);
+}
+```
 ### 更多用法
 官方文档：http://mapstruct.org/documentation/stable/reference/html/
 ## Spring注入方式  
@@ -217,5 +228,4 @@ public class MapStructTest {
   }
 
 }
-```  
-## 常用注解和属性  
+```
