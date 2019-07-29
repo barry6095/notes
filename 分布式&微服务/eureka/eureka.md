@@ -171,10 +171,14 @@ hosts文件最后添加：
   </build>  
 ```  
 ### 启动发现服务  
-为启动类添加`@EnableDiscoveryClient`发现服务  
+为启动类添加`@EnableEurekaClient`或`@EnableDiscoveryClient`发现服务。  
+`@EnableDiscoveryClient`注解是基于spring-cloud-commons依赖，而已实现eureka, consul, zookeeper；  
+`@EnableEurekaClient`注解是基于spring-cloud-netflix依赖，只能为eureka作用；  
+两者作用一样，使用Eureka作为注册中心时推荐用`@EnableEurekaClient`  
 ```
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableEurekaClient//推荐使用这个
+//@EnableDiscoveryClient
 public class EurekaDemoClientApplication {
 
   public static void main(String[] args) {
