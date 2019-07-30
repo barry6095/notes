@@ -118,7 +118,7 @@ hosts文件最后添加：
 ##### 节点均出现在unavailable-replicas下的解决方案  
 1. `eureka.client.serviceUrl.defaultZone`配置项的地址，不能使用localhost，要使用域名，hosts或者DNS解析请自行配置。
 2. `spring.application.name`要一致，个人测试不配置亦可。
-3. `eureka.client.register-with-eureka`和`eureka.client.fetch-registry`必须为true，个人测试不配置有时可以有时不可以，尽量配上。可能是旧版本会出现的问题，必须要配置这两项而且属性名称得改为驼峰式（`eureka.client.registerWithEureka`和`eureka.client.fetchRegistry`）。  
+3. `eureka.client.register-with-eureka`和`eureka.client.fetch-registry`必须为true，个人测试不配置有时可以有时不可以，尽量配上。ps：有时候可能因为是旧版本的问题，这两项必须配置而且属性名称得改为驼峰式（`eureka.client.registerWithEureka`和`eureka.client.fetchRegistry`）。  
 4. 配置`eureka.instance.hostname`且各节点别出现重复名称，另外也要注意配置各节点的hosts。
 5. `eureka.instance.prefer-ip-address`配置为false。`prefer-ip-address=true`作用是不使用主机名，而是使用IP地址的方式来定义注册中心的地址，而defaultZone中是以域名的方式向注册中心注册的（测试了下使用IP注册到备份节点不可识别），最终导致分片节点不能识别匹配（IP地址与域名），而认为分片均处于不可达状态。（测试中未出现该情况，待验证）
 
@@ -172,7 +172,7 @@ hosts文件最后添加：
 ```  
 ### 启动发现服务  
 为启动类添加`@EnableEurekaClient`或`@EnableDiscoveryClient`发现服务。  
-`@EnableDiscoveryClient`注解是基于spring-cloud-commons依赖，而已实现eureka, consul, zookeeper；  
+`@EnableDiscoveryClient`注解是基于spring-cloud-commons依赖，实现了eureka, consul, zookeeper；  
 `@EnableEurekaClient`注解是基于spring-cloud-netflix依赖，只能为eureka作用；  
 两者作用一样，使用Eureka作为注册中心时推荐用`@EnableEurekaClient`  
 ```
@@ -356,9 +356,9 @@ public class ConsumController {
 ![](assets/eureka-c823d0cc.png)  
 2、选择应用并点击复制  
 ![](assets/eureka-8cd0e017.png)  
-3、修改属性
+3、修改属性  
 修改名称是为了区分  
-添加启动属性用于读取指定配置文件，`-Dspring.profiles.active=value`作用是读取带有**value**名称的配置文件
+添加启动属性用于读取指定配置文件，`-Dspring.profiles.active=value`作用是读取名称带有**value**的配置文件
 ![](assets/eureka-f75adc0a.png)  
 4、分别启动即可
 ### Server
